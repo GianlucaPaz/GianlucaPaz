@@ -27,24 +27,28 @@ COLOR_MAP = {
 FALLBACK_COLORS = ["#7F52FF", "#F7DF1E", "#3178C6", "#10B981", "#F97316", "#9CA3AF"]
 
 
+def fallback_svg(message: str) -> str:
+    return f'''<svg width="420" height="150" viewBox="0 0 420 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="150" rx="12" fill="#F3F4F6"/>
+  <text x="18" y="28" fill="#2563EB" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">
+    Most Used Languages
+  </text>
+  <rect x="18" y="46" width="384" height="10" rx="5" fill="#E5E7EB"/>
+  <text x="18" y="95" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600">
+    {escape(message)}
+  </text>
+</svg>'''
+
+
 def extract_visible_text(svg_path: Path) -> str:
     raw = svg_path.read_text(encoding="utf-8")
-
-    # Remove tags e mantém apenas o texto visível
     text = re.sub(r"<[^>]+>", " ", raw)
     text = html.unescape(text)
     text = " ".join(text.split())
-
     return text
 
 
 def parse_language_entries(text: str) -> list[dict]:
-    """
-    Procura padrões como:
-    Kotlin 5.11k lines 150 kB 75.84%
-    JavaScript 143 lines 4.42 kB 2.23%
-    Other 1.08k lines 43.5 kB 21.93%
-    """
     pattern = re.compile(
         r"([A-Za-z0-9#+.\- ]+?)\s+"
         r"([0-9]+(?:\.[0-9]+)?k?\s+lines)\s+"
@@ -59,10 +63,9 @@ def parse_language_entries(text: str) -> list[dict]:
     for name, lines, size, pct in matches:
         name = " ".join(name.split()).strip()
 
-        # Filtra textos que claramente não são nomes de linguagem
         if len(name) > 30:
             continue
-        if "Most used languages" in name:
+        if "most used languages" in name.lower():
             continue
         if "estimation from" in name.lower():
             continue
@@ -78,11 +81,10 @@ def parse_language_entries(text: str) -> list[dict]:
             }
         )
 
-    # Remove duplicatas preservando ordem
     unique = []
     seen = set()
     for entry in entries:
-        key = (entry["name"], entry["lines"], entry["size"], entry["pct"])
+        key = (entry["name"], entry["pct"])
         if key not in seen:
             seen.add(key)
             unique.append(entry)
@@ -96,12 +98,8 @@ def pick_color(name: str, index: int) -> str:
 
 
 def generate_svg(entries: list[dict]) -> str:
-    if not entries:
-        raise ValueError("Nenhuma linguagem foi encontrada em metrics.languages.svg")
-
     card_width = 420
-    padding_x = 18
-    bar_x = padding_x
+    bar_x = 18
     bar_y = 46
     bar_width = 384
     bar_height = 10
@@ -117,10 +115,7 @@ def generate_svg(entries: list[dict]) -> str:
     for idx, entry in enumerate(entries):
         width = bar_width * (entry["pct"] / total_pct)
         color = pick_color(entry["name"], idx)
-
-        rx = 0
-        if idx == 0 or idx == len(entries) - 1:
-            rx = 5
+        rx = 5 if idx == 0 or idx == len(entries) - 1 else 0
 
         segments.append(
             f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" rx="{rx}" fill="{color}"/>'
@@ -144,35 +139,39 @@ def generate_svg(entries: list[dict]) -> str:
             f'font-size="14" font-weight="600">{escape(entry["name"])} {entry["pct"]:.2f}%</text>'
         )
 
-    svg = f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
+    return f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="{card_width}" height="{card_height}" rx="12" fill="#F3F4F6"/>
   <text x="18" y="28" fill="#2563EB" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">
     Most Used Languages
   </text>
-
   <rect x="{bar_x}" y="{bar_y}" width="{bar_width}" height="{bar_height}" rx="5" fill="#E5E7EB"/>
   {"".join(segments)}
-
   {"".join(legends)}
 </svg>'''
-    return svg
 
 
 def main():
     if not SOURCE.exists():
-        raise FileNotFoundError(f"Arquivo não encontrado: {SOURCE}")
+        TARGET.write_text(fallback_svg("metrics.languages.svg nao encontrado"), encoding="utf-8")
+        print("[WARN] source SVG not found, wrote fallback card")
+        return
 
-    text = extract_visible_text(SOURCE)
-    entries = parse_language_entries(text)
+    try:
+        text = extract_visible_text(SOURCE)
+        entries = parse_language_entries(text)
 
-    if not entries:
-        print("Texto extraído do SVG:")
-        print(text[:2000])
-        raise ValueError("Nenhuma linguagem foi encontrada em metrics.languages.svg")
+        if not entries:
+            TARGET.write_text(SOURCE.read_text(encoding="utf-8"), encoding="utf-8")
+            print("[WARN] parser found no languages, copied original SVG as fallback")
+            return
 
-    svg = generate_svg(entries[:4])
-    TARGET.write_text(svg, encoding="utf-8")
-    print(f"[OK] wrote {TARGET}")
+        svg = generate_svg(entries[:4])
+        TARGET.write_text(svg, encoding="utf-8")
+        print(f"[OK] wrote {TARGET}")
+
+    except Exception as e:
+        TARGET.write_text(SOURCE.read_text(encoding="utf-8"), encoding="utf-8")
+        print(f"[WARN] custom build failed ({e}), copied original SVG as fallback")
 
 
 if __name__ == "__main__":
