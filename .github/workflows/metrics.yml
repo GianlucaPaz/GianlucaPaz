@@ -59,18 +59,23 @@ jobs:
             shell
             gnuplot
 
+      - name: Copy metrics SVG into repository
+        run: cp /metrics_renders/metrics.languages.svg ./metrics.languages.svg
+
       - name: Build custom SVG card
         run: python .github/scripts/build_languages_svg.py
 
       - name: Commit generated SVG files
         run: |
-          if git diff --quiet -- metrics.languages.svg assets/languages-custom.svg; then
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A metrics.languages.svg assets/languages-custom.svg
+
+          if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add metrics.languages.svg assets/languages-custom.svg
           git commit -m "Auto-update language SVGs"
           git push
