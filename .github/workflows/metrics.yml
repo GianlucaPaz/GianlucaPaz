@@ -109,6 +109,22 @@ jobs:
           cp /metrics_renders/metrics.languages.svg ./metrics.languages.svg
           cp /metrics_renders/metrics.languages.json ./metrics.languages.json
 
+      - name: Debug metrics JSON
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+      
+          p = Path("metrics.languages.json")
+          print("exists:", p.exists())
+          if p.exists():
+              data = json.loads(p.read_text(encoding="utf-8"))
+              print("type:", type(data).__name__)
+              if isinstance(data, dict):
+                  print("keys:", list(data.keys())[:50])
+              print(json.dumps(data, ensure_ascii=False)[:4000])
+          PY
+
       - name: Build custom SVG card
         run: python .github/scripts/build_languages_svg.py
 
