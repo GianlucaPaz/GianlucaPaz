@@ -139,8 +139,8 @@ def generate_svg(entries):
         )
 
     return f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="{card_width}" height="{card_height}" rx="6" fill="#151515" stroke="#FFFFFF" stroke-width="4"/>
-  <text x="{padding_x}" y="{title_y}" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400">
+  <rect width="{card_width-1}" height="{card_height-1}" x="0.5" y="0.5" rx="6" fill="#151515" stroke="#30363D" stroke-width="1"/>
+  <text x="{padding_x}" y="{title_y}" fill="#F0F6FC" font-family="{font_stack}" font-size="16" font-weight="600">
     Linguagens mais usadas
   </text>
 
