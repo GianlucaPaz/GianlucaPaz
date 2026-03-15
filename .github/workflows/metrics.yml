@@ -109,7 +109,7 @@ jobs:
           cp /metrics_renders/metrics.languages.svg ./metrics.languages.svg
           cp /metrics_renders/metrics.languages.json ./metrics.languages.json
 
-      - name: Debug metrics JSON
+      - name: Debug language paths
         run: |
           python - <<'PY'
           import json
@@ -117,12 +117,44 @@ jobs:
       
           p = Path("metrics.languages.json")
           print("exists:", p.exists())
-          if p.exists():
-              data = json.loads(p.read_text(encoding="utf-8"))
-              print("type:", type(data).__name__)
-              if isinstance(data, dict):
-                  print("keys:", list(data.keys())[:50])
-              print(json.dumps(data, ensure_ascii=False)[:4000])
+      
+          if not p.exists():
+              raise SystemExit(0)
+      
+          data = json.loads(p.read_text(encoding="utf-8"))
+          print("type:", type(data).__name__)
+      
+          if isinstance(data, dict):
+              print("top-level keys:", list(data.keys())[:50])
+      
+          def walk(node, path=()):
+              if isinstance(node, dict):
+                  keys_lower = [str(k).lower() for k in node.keys()]
+                  path_str = ".".join(path) if path else "<root>"
+      
+                  interesting = False
+      
+                  if any("lang" in k for k in keys_lower):
+                      interesting = True
+      
+                  if any(k in keys_lower for k in ["name", "language", "label", "title", "key", "percentage", "percent", "ratio", "share", "value"]):
+                      interesting = True
+      
+                  if interesting:
+                      print("\n=== PATH:", path_str, "===")
+                      try:
+                          print(json.dumps(node, ensure_ascii=False, indent=2)[:5000])
+                      except Exception:
+                          print(str(node)[:5000])
+      
+                  for k, v in node.items():
+                      walk(v, path + (str(k),))
+      
+              elif isinstance(node, list):
+                  for i, item in enumerate(node):
+                      walk(item, path + (f"[{i}]",))
+      
+          walk(data)
           PY
 
       - name: Build custom SVG card
