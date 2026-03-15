@@ -27,44 +27,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Generate source SVG with Metrics
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: gianlucapaz
-          filename: metrics.languages.svg
-          output_action: none
-          base: ""
-
-          plugin_languages: yes
-          plugin_languages_sections: most-used
-          plugin_languages_indepth: yes
-          plugin_languages_indepth_custom: |
-            J4g3rWulf/automatic-happiness
-
-          plugin_languages_categories: programming
-          plugin_languages_details: lines,bytes-size,percentage
-          plugin_languages_limit: 4
-          plugin_languages_analysis_timeout: 15
-
-          commits_authoring: |
-            Gianluca Paz
-            Gianluca do Nascimento Paz
-            gianlucapaz
-            gianlucapaz@gmail.com
-            gianlucapaz@users.noreply.github.com
-
-          plugin_languages_ignored: |
-            html
-            css
-            tex
-            less
-            dockerfile
-            makefile
-            cmake
-            shell
-            gnuplot
-
       - name: Generate source JSON with Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -104,58 +66,8 @@ jobs:
             shell
             gnuplot
 
-      - name: Copy metrics files into repository
-        run: |
-          cp /metrics_renders/metrics.languages.svg ./metrics.languages.svg
-          cp /metrics_renders/metrics.languages.json ./metrics.languages.json
-
-      - name: Debug language paths
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-      
-          p = Path("metrics.languages.json")
-          print("exists:", p.exists())
-      
-          if not p.exists():
-              raise SystemExit(0)
-      
-          data = json.loads(p.read_text(encoding="utf-8"))
-          print("type:", type(data).__name__)
-      
-          if isinstance(data, dict):
-              print("top-level keys:", list(data.keys())[:50])
-      
-          def walk(node, path=()):
-              if isinstance(node, dict):
-                  keys_lower = [str(k).lower() for k in node.keys()]
-                  path_str = ".".join(path) if path else "<root>"
-      
-                  interesting = False
-      
-                  if any("lang" in k for k in keys_lower):
-                      interesting = True
-      
-                  if any(k in keys_lower for k in ["name", "language", "label", "title", "key", "percentage", "percent", "ratio", "share", "value"]):
-                      interesting = True
-      
-                  if interesting:
-                      print("\n=== PATH:", path_str, "===")
-                      try:
-                          print(json.dumps(node, ensure_ascii=False, indent=2)[:5000])
-                      except Exception:
-                          print(str(node)[:5000])
-      
-                  for k, v in node.items():
-                      walk(v, path + (str(k),))
-      
-              elif isinstance(node, list):
-                  for i, item in enumerate(node):
-                      walk(item, path + (f"[{i}]",))
-      
-          walk(data)
-          PY
+      - name: Copy metrics JSON into repository
+        run: cp /metrics_renders/metrics.languages.json ./metrics.languages.json
 
       - name: Build custom SVG card
         run: python .github/scripts/build_languages_svg.py
@@ -165,14 +77,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -A metrics.languages.svg metrics.languages.json assets/languages-custom.svg
+          git add -A assets/languages-custom.svg
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
 
-          git commit -m "Auto-update language SVGs"
+          git commit -m "Auto-update custom language SVG"
 
           git pull --rebase origin main
           git push origin main
