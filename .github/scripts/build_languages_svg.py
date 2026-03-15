@@ -1,14 +1,11 @@
 from pathlib import Path
 import re
-import xml.etree.ElementTree as ET
+import html
 from xml.sax.saxutils import escape
 
 SOURCE = Path("metrics.languages.svg")
 TARGET = Path("assets/languages-custom.svg")
 TARGET.parent.mkdir(parents=True, exist_ok=True)
-
-PERCENT_RE = re.compile(r"^\d+(?:\.\d+)?%$")
-SIZE_RE = re.compile(r"^\d+(?:\.\d+)?\s*(?:B|kB|MB|GB)$", re.IGNORECASE)
 
 COLOR_MAP = {
     "Kotlin": "#7F52FF",
@@ -30,54 +27,62 @@ COLOR_MAP = {
 FALLBACK_COLORS = ["#7F52FF", "#F7DF1E", "#3178C6", "#10B981", "#F97316", "#9CA3AF"]
 
 
-def read_svg_texts(path: Path) -> list[str]:
-    root = ET.parse(path).getroot()
-    texts = []
+def extract_visible_text(svg_path: Path) -> str:
+    raw = svg_path.read_text(encoding="utf-8")
 
-    for elem in root.iter():
-        tag = elem.tag.rsplit("}", 1)[-1]
-        if tag == "text":
-            text = " ".join("".join(elem.itertext()).split())
-            if text:
-                texts.append(text)
+    # Remove tags e mantém apenas o texto visível
+    text = re.sub(r"<[^>]+>", " ", raw)
+    text = html.unescape(text)
+    text = " ".join(text.split())
 
-    cleaned = []
-    for text in texts:
-        if not cleaned or cleaned[-1] != text:
-            cleaned.append(text)
-
-    return cleaned
+    return text
 
 
-def parse_language_entries(texts: list[str]) -> list[dict]:
+def parse_language_entries(text: str) -> list[dict]:
+    """
+    Procura padrões como:
+    Kotlin 5.11k lines 150 kB 75.84%
+    JavaScript 143 lines 4.42 kB 2.23%
+    Other 1.08k lines 43.5 kB 21.93%
+    """
+    pattern = re.compile(
+        r"([A-Za-z0-9#+.\- ]+?)\s+"
+        r"([0-9]+(?:\.[0-9]+)?k?\s+lines)\s+"
+        r"([0-9]+(?:\.[0-9]+)?\s*[kMGT]?B)\s+"
+        r"([0-9]+(?:\.[0-9]+)?)%",
+        re.IGNORECASE,
+    )
+
+    matches = pattern.findall(text)
     entries = []
 
-    for i, value in enumerate(texts):
-        if not PERCENT_RE.match(value) or i < 3:
-            continue
+    for name, lines, size, pct in matches:
+        name = " ".join(name.split()).strip()
 
-        name = texts[i - 3]
-        lines = texts[i - 2]
-        size = texts[i - 1]
-
-        if "line" not in lines.lower():
+        # Filtra textos que claramente não são nomes de linguagem
+        if len(name) > 30:
             continue
-        if not SIZE_RE.match(size):
+        if "Most used languages" in name:
+            continue
+        if "estimation from" in name.lower():
+            continue
+        if "languages" in name.lower() and name.lower() != "other":
             continue
 
         entries.append(
             {
                 "name": name,
-                "lines": lines,
-                "size": size,
-                "pct": float(value[:-1]),
+                "lines": lines.strip(),
+                "size": size.strip(),
+                "pct": float(pct),
             }
         )
 
+    # Remove duplicatas preservando ordem
     unique = []
     seen = set()
     for entry in entries:
-        key = (entry["name"], entry["pct"])
+        key = (entry["name"], entry["lines"], entry["size"], entry["pct"])
         if key not in seen:
             seen.add(key)
             unique.append(entry)
@@ -108,14 +113,17 @@ def generate_svg(entries: list[dict]) -> str:
 
     segments = []
     current_x = bar_x
+
     for idx, entry in enumerate(entries):
         width = bar_width * (entry["pct"] / total_pct)
         color = pick_color(entry["name"], idx)
 
-        radius = 5 if idx == 0 or idx == len(entries) - 1 else 0
+        rx = 0
+        if idx == 0 or idx == len(entries) - 1:
+            rx = 5
+
         segments.append(
-            f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" '
-            f'rx="{radius}" fill="{color}"/>'
+            f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" rx="{rx}" fill="{color}"/>'
         )
         current_x += width
 
@@ -151,8 +159,17 @@ def generate_svg(entries: list[dict]) -> str:
 
 
 def main():
-    texts = read_svg_texts(SOURCE)
-    entries = parse_language_entries(texts)
+    if not SOURCE.exists():
+        raise FileNotFoundError(f"Arquivo não encontrado: {SOURCE}")
+
+    text = extract_visible_text(SOURCE)
+    entries = parse_language_entries(text)
+
+    if not entries:
+        print("Texto extraído do SVG:")
+        print(text[:2000])
+        raise ValueError("Nenhuma linguagem foi encontrada em metrics.languages.svg")
+
     svg = generate_svg(entries[:4])
     TARGET.write_text(svg, encoding="utf-8")
     print(f"[OK] wrote {TARGET}")
