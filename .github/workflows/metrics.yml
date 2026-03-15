@@ -27,12 +27,9 @@ jobs:
             J4g3rWulf/automatic-happiness
 
           plugin_languages_categories: programming
-          plugin_languages_recent_categories: programming
           plugin_languages_details: lines,bytes-size,percentage
           plugin_languages_limit: 8
           plugin_languages_analysis_timeout: 15
-          plugin_languages_recent_load: 400
-          plugin_languages_recent_days: 30
 
           commits_authoring: |
             Gianluca Paz
