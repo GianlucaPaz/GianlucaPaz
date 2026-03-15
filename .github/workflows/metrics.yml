@@ -27,6 +27,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Sync branch
+        run: git pull --rebase origin main
+
       - name: Generate source JSON with Metrics
         uses: lowlighter/metrics@latest
         with:
@@ -66,9 +69,6 @@ jobs:
             shell
             gnuplot
 
-      - name: Copy metrics JSON into repository
-        run: cp /metrics_renders/metrics.languages.json ./metrics.languages.json
-
       - name: Build custom SVG card
         run: python .github/scripts/build_languages_svg.py
 
@@ -85,6 +85,4 @@ jobs:
           fi
 
           git commit -m "Auto-update custom language SVG"
-
-          git pull --rebase origin main
           git push origin main
