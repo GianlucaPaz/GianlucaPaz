@@ -1,10 +1,12 @@
 from pathlib import Path
+import json
 import re
 import html
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
 
-SOURCE = Path("metrics.languages.svg")
+SOURCE_JSON = Path("metrics.languages.json")
+SOURCE_SVG = Path("metrics.languages.svg")
 TARGET = Path("assets/languages-custom.svg")
 TARGET.parent.mkdir(parents=True, exist_ok=True)
 
@@ -26,9 +28,15 @@ COLOR_MAP = {
 }
 
 FALLBACK_COLORS = ["#A97BFF", "#F7DF1E", "#3178C6", "#10B981", "#F97316", "#8B949E"]
-
 PERCENT_RE = re.compile(r"^\d+(?:\.\d+)?%$")
 SIZE_RE = re.compile(r"^\d+(?:\.\d+)?\s*[kMGT]?B$", re.IGNORECASE)
+
+IGNORED_NAMES = {
+    "most used languages",
+    "linguagens mais usadas",
+    "languages",
+    "language",
+}
 
 
 def clean_text(text: str) -> str:
@@ -36,7 +44,140 @@ def clean_text(text: str) -> str:
     return " ".join(text.split()).strip()
 
 
-def parse_from_svg_rows(svg_path: Path) -> list[dict]:
+def normalize_key(key: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", str(key).lower()).strip("_")
+
+
+def normalize_name(name: str) -> str:
+    name = clean_text(name)
+    aliases = {
+        "javascript": "JavaScript",
+        "typescript": "TypeScript",
+        "kotlin": "Kotlin",
+        "other": "Other",
+        "python": "Python",
+        "java": "Java",
+        "c#": "C#",
+        "c++": "C++",
+        "c": "C",
+        "go": "Go",
+        "rust": "Rust",
+        "php": "PHP",
+        "html": "HTML",
+        "css": "CSS",
+    }
+    return aliases.get(name.lower(), name)
+
+
+def is_valid_language_name(name: str) -> bool:
+    low = clean_text(name).lower()
+    if not low:
+        return False
+    if low in IGNORED_NAMES:
+        return False
+    if "estimation from" in low:
+        return False
+    if "commits" in low:
+        return False
+    if low.startswith("4 languages"):
+        return False
+    return True
+
+
+def to_percent(value):
+    if isinstance(value, (int, float)):
+        if 0 < value <= 1:
+            return float(value) * 100.0
+        if 0 < value <= 100:
+            return float(value)
+        return None
+
+    if isinstance(value, str):
+        value = value.strip()
+        m = re.match(r"^([0-9]+(?:\.[0-9]+)?)\s*%?$", value)
+        if not m:
+            return None
+        num = float(m.group(1))
+        if 0 < num <= 100:
+            return num
+    return None
+
+
+def walk_json(node, path=()):
+    found = []
+
+    if isinstance(node, dict):
+        normalized = {normalize_key(k): v for k, v in node.items()}
+
+        name = None
+        for key in ("name", "language", "label", "title", "key"):
+            if key in normalized and isinstance(normalized[key], str):
+                name = normalize_name(normalized[key])
+                break
+
+        pct = None
+        pct_source = None
+        for key in ("percentage", "percent", "ratio", "share"):
+            if key in normalized:
+                pct = to_percent(normalized[key])
+                if pct is not None:
+                    pct_source = key
+                    break
+
+        if name and pct is not None and is_valid_language_name(name):
+            score = 0
+            if any("language" in p for p in path):
+                score += 4
+            if pct_source in {"percentage", "percent"}:
+                score += 3
+            if name in COLOR_MAP or name == "Other":
+                score += 2
+
+            found.append({
+                "name": name,
+                "pct": pct,
+                "score": score,
+            })
+
+        for key, value in node.items():
+            found.extend(walk_json(value, path + (normalize_key(key),)))
+
+    elif isinstance(node, list):
+        for item in node:
+            found.extend(walk_json(item, path))
+
+    return found
+
+
+def parse_from_json(path: Path):
+    if not path.exists():
+        return []
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    candidates = walk_json(data)
+
+    best = {}
+    for item in candidates:
+        name = item["name"]
+        prev = best.get(name)
+        if prev is None or (item["score"], item["pct"]) > (prev["score"], prev["pct"]):
+            best[name] = item
+
+    entries = [{"name": v["name"], "pct": round(v["pct"], 2)} for v in best.values()]
+    entries.sort(key=lambda x: x["pct"], reverse=True)
+
+    # remove noise
+    entries = [e for e in entries if e["pct"] > 0]
+
+    # normalize "Other" if necessary
+    total = sum(e["pct"] for e in entries)
+    if total > 100.5:
+        entries = entries[:4]
+
+    return entries
+
+
+def parse_from_svg_rows(svg_path: Path):
     tree = ET.parse(svg_path)
     root = tree.getroot()
 
@@ -75,23 +216,18 @@ def parse_from_svg_rows(svg_path: Path) -> list[dict]:
         if not percent:
             continue
 
-        lines = next((t for t in texts if "line" in t.lower()), None)
-        size = next((t for t in texts if SIZE_RE.match(t)), None)
-
         name_candidates = []
         for t in texts:
             low = t.lower()
             if t == percent:
                 continue
-            if lines and t == lines:
+            if "line" in low:
                 continue
-            if size and t == size:
+            if SIZE_RE.match(t):
                 continue
             if "most used languages" in low:
                 continue
             if "linguagens mais usadas" in low:
-                continue
-            if "languages" in low and low != "other":
                 continue
             if "estimation from" in low:
                 continue
@@ -104,70 +240,14 @@ def parse_from_svg_rows(svg_path: Path) -> list[dict]:
         if not name_candidates:
             continue
 
-        name = name_candidates[0]
-        entries.append(
-            {
-                "name": name,
-                "lines": lines or "",
-                "size": size or "",
-                "pct": float(percent[:-1]),
-            }
-        )
-
-    unique = []
-    seen = set()
-    for entry in entries:
-        key = (entry["name"], entry["pct"])
-        if key not in seen:
-            seen.add(key)
-            unique.append(entry)
-
-    unique.sort(key=lambda item: item["pct"], reverse=True)
-    return unique
-
-
-def extract_visible_text(svg_path: Path) -> str:
-    raw = svg_path.read_text(encoding="utf-8")
-    text = re.sub(r"<[^>]+>", " ", raw)
-    text = html.unescape(text)
-    text = " ".join(text.split())
-    return text
-
-
-def parse_from_flat_text(text: str) -> list[dict]:
-    pattern = re.compile(
-        r"([A-Za-z0-9#+.\- ]+?)\s+"
-        r"([0-9]+(?:\.[0-9]+)?k?\s+lines)\s+"
-        r"([0-9]+(?:\.[0-9]+)?\s*[kMGT]?B)\s+"
-        r"([0-9]+(?:\.[0-9]+)?)%",
-        re.IGNORECASE,
-    )
-
-    matches = pattern.findall(text)
-    entries = []
-
-    for name, lines, size, pct in matches:
-        name = clean_text(name)
-
-        if len(name) > 30:
-            continue
-        if "most used languages" in name.lower():
-            continue
-        if "linguagens mais usadas" in name.lower():
-            continue
-        if "estimation from" in name.lower():
-            continue
-        if "languages" in name.lower() and name.lower() != "other":
+        name = normalize_name(name_candidates[0])
+        if not is_valid_language_name(name):
             continue
 
-        entries.append(
-            {
-                "name": name,
-                "lines": lines.strip(),
-                "size": size.strip(),
-                "pct": float(pct),
-            }
-        )
+        entries.append({
+            "name": name,
+            "pct": float(percent[:-1]),
+        })
 
     unique = []
     seen = set()
@@ -185,7 +265,7 @@ def pick_color(name: str, index: int) -> str:
     return COLOR_MAP.get(name, FALLBACK_COLORS[index % len(FALLBACK_COLORS)])
 
 
-def generate_svg(entries: list[dict]) -> str:
+def generate_svg(entries):
     if not entries:
         raise ValueError("Nenhuma linguagem foi encontrada")
 
@@ -210,10 +290,7 @@ def generate_svg(entries: list[dict]) -> str:
     for idx, entry in enumerate(entries):
         width = bar_width * (entry["pct"] / total_pct)
         color = pick_color(entry["name"], idx)
-
-        rx = 0
-        if idx == 0 or idx == len(entries) - 1:
-            rx = 5
+        rx = 5 if idx == 0 or idx == len(entries) - 1 else 0
 
         segments.append(
             f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" rx="{rx}" fill="{color}"/>'
@@ -251,17 +328,13 @@ def generate_svg(entries: list[dict]) -> str:
 
 
 def main():
-    if not SOURCE.exists():
-        raise FileNotFoundError(f"Arquivo não encontrado: {SOURCE}")
+    entries = parse_from_json(SOURCE_JSON)
 
-    entries = parse_from_svg_rows(SOURCE)
-
-    if not entries:
-        text = extract_visible_text(SOURCE)
-        entries = parse_from_flat_text(text)
+    if not entries and SOURCE_SVG.exists():
+        entries = parse_from_svg_rows(SOURCE_SVG)
 
     if not entries:
-        raise ValueError("Nenhuma linguagem foi encontrada em metrics.languages.svg")
+        raise ValueError("Nenhuma linguagem foi encontrada em metrics.languages.json ou metrics.languages.svg")
 
     svg = generate_svg(entries)
     TARGET.write_text(svg, encoding="utf-8")
