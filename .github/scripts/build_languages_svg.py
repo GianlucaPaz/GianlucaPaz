@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 from xml.sax.saxutils import escape
 
-SOURCE_JSON = Path("metrics.languages.json")
+SOURCE_JSON = Path("/metrics_renders/metrics.languages.json")
 TARGET = Path("assets/languages-custom.svg")
 TARGET.parent.mkdir(parents=True, exist_ok=True)
 
@@ -114,7 +114,7 @@ def generate_svg(entries):
     for idx, entry in enumerate(entries):
         width = bar_width * (entry["pct"] / total_pct)
         color = entry.get("color") or pick_color(entry["name"], idx)
-        rx = 4 if idx == 0 or idx == len(entries) - 1 else 0
+        rx = 5 if idx == 0 or idx == len(entries) - 1 else 0
 
         segments.append(
             f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" rx="{rx}" fill="{color}"/>'
@@ -139,12 +139,12 @@ def generate_svg(entries):
         )
 
     return f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="{card_width}" height="{card_height}" rx="4" fill="#0D1117" stroke="#FFFFFF" stroke-width="1"/>
+  <rect width="{card_width}" height="{card_height}" rx="6" fill="#0D1117" stroke="#FFFFFF" stroke-width="1"/>
   <text x="{padding_x}" y="{title_y}" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">
     Linguagens mais usadas
   </text>
 
-  <rect x="{bar_x}" y="{bar_y}" width="{bar_width}" height="{bar_height}" rx="4" fill="#21262D"/>
+  <rect x="{bar_x}" y="{bar_y}" width="{bar_width}" height="{bar_height}" rx="5" fill="#21262D"/>
   {"".join(segments)}
 
   {"".join(legends)}
