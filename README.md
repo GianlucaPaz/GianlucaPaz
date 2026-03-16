@@ -76,15 +76,21 @@ Me chamo Gianluca do Nascimento Paz, tenho 27 anos e sou natural do Rio de Janei
 
 ### 📊 Estatísticas
 
-<p align="left">
-  <img
-    alt="GitHub Stats"
-    height="190"
-    src="https://github-readme-stats.vercel.app/api?username=gianlucapaz&show_icons=true&include_all_commits=true&locale=pt-br&bg_color=0d1117&border_color=ffffff&title_color=ffffff&text_color=c9d1d9&icon_color=58a6ff"
-  />
-  <img
-    alt="Linguagens mais usadas"
-    height="150"
-    src="./assets/languages-custom.svg"
-  />
-</p>
+<table>
+  <tr>
+    <td valign="top">
+      <img 
+        alt="GitHub Stats" 
+        height="200" 
+        src="https://github-readme-stats.vercel.app/api?username=gianlucapaz&show_icons=true&theme=dark&include_all_commits=true&locale=pt-br" 
+      />
+    </td>
+    <td valign="top">
+      <img
+        alt="Most Used Languages"
+        height="150"
+        src="./assets/languages-custom.svg"
+      />
+    </td>
+  </tr>
+</table>
