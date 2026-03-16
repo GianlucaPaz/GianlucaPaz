@@ -1,16 +1,30 @@
 # 👋 Hello, World! I'm Gianluca Paz! 🌎
 
-▫️Me chamo Gianluca do Nascimento Paz, um desenvolvedor (Escrever principal função aqui)* que vive no Brasil.
+- Me chamo Gianluca do Nascimento Paz, sou Desenvolvedor de Software e vivo no Brasil.
 
-▫️Tenho focado principalmente em projetos de frontend - HTML, CSS, JavaScript. (Modificar esta parte)*
+- Tenho atuado principalmente em projetos de desenvolvimento mobile, construção de interfaces e aplicações web,<br>
+   utilizando Kotlin, Jetpack Compose,  HTML, CSS e JavaScript.
 
-▫️Eu também uso Figma para UI design e Excalidraw para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
+- Busco aprofundar meus conhecimentos em backend e IA aplicada, como complemento à minha formação e aos projetos que desenvolvo.
 
-▫️Este é um espaço onde compartilho projetos, experimentos e algumas das coisas que venho estudando e desenvolvendo.
+- Também utilizo Figma para UI design e Excalidraw para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
+
+- Este é um espaço onde compartilho projetos, estudos e experimentos relacionados à minha evolução como desenvolvedor.
 
 ---
 
-### 🤖 Linguagens e Tecnologias (Trocar por: Ferramentas e Tecnologias)
+### 🚀 Projeto em destaque (Editar ou deletar essa seção)
+
+#### RecycleApp
+Aplicação Android desenvolvida como projeto de TCC em grupo, utilizando **Kotlin** e **Jetpack Compose**, com **classificação local de resíduos via TensorFlow Lite**.  
+
+O projeto envolveu construção de interface, lógica da aplicação, integração com câmera e galeria e uso de IA embarcada no dispositivo.
+
+---
+
+### 🤖 Ferramentas e Tecnologias (Editar essa seção)
+
+Kotlin • Jetpack Compose • HTML • CSS • JavaScript • Python • Git • Figma • Excalidraw • TensorFlow Lite
 
 <img 
     align="left" 
