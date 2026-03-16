@@ -85,7 +85,7 @@ Me chamo Gianluca do Nascimento Paz, tenho 27 anos e sou natural do Rio de Janei
   />
   <img
     alt="Linguagens mais usadas"
-    width="49%"
+    width="43.2%"
     style="vertical-align: top;"
     src="./assets/languages-custom.svg"
   />
