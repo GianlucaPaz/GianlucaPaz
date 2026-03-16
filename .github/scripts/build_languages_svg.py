@@ -97,15 +97,19 @@ def generate_svg(entries):
 
     card_width = 380
     padding_x = 16
-    title_y = 30
+
+    # Ajustes verticais para o conteúdo "descer" um pouco
+    title_y = 34
     bar_x = padding_x
-    bar_y = 52
+    bar_y = 58
     bar_width = 348
     bar_height = 10
 
     rows = (len(entries) + 1) // 2
-    content_height = 88 + rows * 28 + 16
-    card_height = max(170, content_height)
+
+    # Altura mínima fixa para ficar parecida com o card da esquerda
+    content_height = 100 + rows * 28 + 20
+    card_height = max(180, content_height)
 
     total_pct = sum(entry["pct"] for entry in entries) or 100.0
 
@@ -129,19 +133,19 @@ def generate_svg(entries):
         row = idx // 2
 
         cx = 20 + col * 180
-        cy = 90 + row * 28
+        cy = 100 + row * 28
         tx = cx + 14
         ty = cy + 5
 
         legends.append(
             f'<circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>'
-            f'<text x="{tx}" y="{ty}" fill="#C9D1D9" font-family="Arial, Helvetica, sans-serif" '
-            f'font-size="13" font-weight="600">{escape(entry["name"])} {entry["pct"]:.2f}%</text>'
+            f'<text x="{tx}" y="{ty}" fill="#9f9f9f" font-family="\'Segoe UI\', Ubuntu, \'Helvetica Neue\', sans-serif" '
+            f'font-size="14" font-weight="600">{escape(entry["name"])} {entry["pct"]:.2f}%</text>'
         )
 
     return f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="{card_width-1}" height="{card_height-1}" x="0.5" y="0.5" rx="6" fill="#151515" stroke="#30363D" stroke-width="1"/>
-  <text x="{padding_x}" y="{title_y}" fill="#F0F6FC" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600">
+  <rect width="{card_width-1}" height="{card_height-1}" x="0.5" y="0.5" rx="6" fill="#151515" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="{padding_x}" y="{title_y}" fill="#fff" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="18" font-weight="600">
     Linguagens mais usadas
   </text>
 
