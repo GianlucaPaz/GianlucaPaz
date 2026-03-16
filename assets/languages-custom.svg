@@ -1,11 +1,11 @@
-<svg width="380" height="132" viewBox="0 0 380 132" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="379" height="131" x="0.5" y="0.5" rx="6" fill="#151515" stroke="#FFFFFF" stroke-width="1"/>
-  <text x="16" y="30" fill="#fff" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="18" font-weight="600">
+<svg width="380" height="170" viewBox="0 0 380 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="379" height="169" x="0.5" y="0.5" rx="6" fill="#151515" stroke="#30363D" stroke-width="1"/>
+  <text x="16" y="30" fill="#F0F6FC" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="600">
     Linguagens mais usadas
   </text>
 
   <rect x="16" y="52" width="348" height="10" rx="4" fill="#21262D"/>
   <rect x="16.00" y="52" width="338.05" height="10" rx="4" fill="#A97BFF"/><rect x="354.05" y="52" width="9.95" height="10" rx="4" fill="#f1e05a"/>
 
-  <circle cx="20" cy="90" r="4.5" fill="#A97BFF"/><text x="34" y="95" fill="#b3b3b3" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Kotlin 97.14%</text><circle cx="200" cy="90" r="4.5" fill="#f1e05a"/><text x="214" y="95" fill="#b3b3b3" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">JavaScript 2.86%</text>
+  <circle cx="20" cy="90" r="4.5" fill="#A97BFF"/><text x="34" y="95" fill="#C9D1D9" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600">Kotlin 97.14%</text><circle cx="200" cy="90" r="4.5" fill="#f1e05a"/><text x="214" y="95" fill="#C9D1D9" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="600">JavaScript 2.86%</text>
 </svg>
