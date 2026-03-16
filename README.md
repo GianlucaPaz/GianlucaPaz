@@ -1,34 +1,16 @@
-# 👋 Hello World, I'm Gianluca Paz! 🌎
+# 👋 Hello, World! I'm Gianluca Paz! 🌎
 
-Me chamo Gianluca do Nascimento Paz, tenho 27 anos e sou natural do Rio de Janeiro. Concluí o ensino médio no Colégio Militar do Rio de Janeiro (CMRJ). Atualmente, estou cursando Ciência da Computação na Universidade Veiga de Almeida (UVA).
+▫️Me chamo Gianluca do Nascimento Paz, um desenvolvedor (Escrever principal função aqui)* que vive no Brasil.
 
-<p align="left">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gianlucapaz@gmail.com" target="_blank" rel="noopener">
-        <img 
-            alt="Gmail" 
-            title="Entre em contato por email" 
-            src="https://custom-icon-badges.demolab.com/badge/-gianlucapaz@gmail.com-333?style=for-the-badge&logo=gmail&logoColor=white&labelColor=333"
-        />
-    </a>
-    <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank">
-        <img 
-            alt="LinkedIn" 
-            title="Me siga no LinkedIn" 
-            src="https://custom-icon-badges.demolab.com/badge/-LinkedIn-0077B5.svg?style=for-the-badge&logo=linkedin-in&logoColor=white"
-        />
-    </a>
-    <a href="https://instagram.com/gianlucapaz" target="_blank">
-        <img 
-            alt="Instagram" 
-            title="Me siga no Instagram" 
-            src="https://custom-icon-badges.demolab.com/badge/-Instagram-C13584?style=for-the-badge&logo=instagram&logoColor=white&labelColor=C13584"
-        />
-    </a>
-</p>
+▫️Tenho focado principalmente em projetos de frontend - HTML, CSS, JavaScript. (Modificar esta parte)*
+
+▫️Eu também uso Figma para UI design e Excalidraw para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
+
+▫️Este é um espaço onde compartilho projetos, experimentos e algumas das coisas que venho estudando e desenvolvendo.
 
 ---
 
-### 🤖 Linguagens e Tecnologias
+### 🤖 Linguagens e Tecnologias (Trocar por: Ferramentas e Tecnologias)
 
 <img 
     align="left" 
@@ -74,6 +56,8 @@ Me chamo Gianluca do Nascimento Paz, tenho 27 anos e sou natural do Rio de Janei
 <br/>
 <br/>
 
+---
+
 ### 📊 Estatísticas
 
 <p align="left">
@@ -90,3 +74,33 @@ Me chamo Gianluca do Nascimento Paz, tenho 27 anos e sou natural do Rio de Janei
     src="./assets/languages-custom.svg"
   />
 </p>
+
+---
+
+### ✉️ Redes e Contatos
+
+<p align="left">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gianlucapaz@gmail.com" target="_blank" rel="noopener">
+        <img 
+            alt="Gmail" 
+            title="Entre em contato por email" 
+            src="https://custom-icon-badges.demolab.com/badge/-gianlucapaz@gmail.com-333?style=for-the-badge&logo=gmail&logoColor=white&labelColor=333"
+        />
+    </a>
+    <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank">
+        <img 
+            alt="LinkedIn" 
+            title="Me siga no LinkedIn" 
+            src="https://custom-icon-badges.demolab.com/badge/-LinkedIn-0077B5.svg?style=for-the-badge&logo=linkedin-in&logoColor=white"
+        />
+    </a>
+    <a href="https://instagram.com/gianlucapaz" target="_blank">
+        <img 
+            alt="Instagram" 
+            title="Me siga no Instagram" 
+            src="https://custom-icon-badges.demolab.com/badge/-Instagram-C13584?style=for-the-badge&logo=instagram&logoColor=white&labelColor=C13584"
+        />
+    </a>
+</p>
+
+---
