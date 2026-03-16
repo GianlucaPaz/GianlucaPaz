@@ -135,7 +135,7 @@ def generate_svg(entries):
         legends.append(
             f'<circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>'
             f'<text x="{tx}" y="{ty}" fill="#9f9f9f" font-family="\'Segoe UI\', Ubuntu, \'Helvetica Neue\', sans-serif" '
-            f'font-size="14" font-weight="800">{escape(entry["name"])} {entry["pct"]:.2f}%</text>'
+            f'font-size="14" font-weight="700">{escape(entry["name"])} {entry["pct"]:.2f}%</text>'
         )
 
     return f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
