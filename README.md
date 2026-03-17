@@ -21,6 +21,8 @@ Aplicativo Android desenvolvido em grupo como projeto de TCC, com foco na classi
 
 O projeto envolveu o desenvolvimento da interface, da lógica da aplicação, da integração com a câmera e a galeria, além da implementação de IA embarcada diretamente no dispositivo.
 
+<a href="https://github.com/J4g3rWulf/automatic-happiness" target="_blank" rel="noopener noreferrer"><img alt="Ver repositório" title="Ver repositório no GitHub" src="./assets/badges/repository-bar.svg" /></a>
+
 <a href="https://github.com/J4g3rWulf/automatic-happiness" target="_blank" rel="noopener noreferrer">
    <img alt="Ver repositório" title="Ver repositório no GitHub" src="https://custom-icon-badges.demolab.com/badge/-Ver%20reposit%C3%B3rio-333?style=for-the-badge&logo=github&logoColor=white&labelColor=333" />
 </a>
