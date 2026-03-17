@@ -95,10 +95,10 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 ### ✉️ Redes e Contatos
 
 <p align="left">
-  <a href="mailto:gianlucapaz@gmail.com"><img alt="Email" title="Entre em contato por email" src="./assets/badges/email.svg" /></a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gianlucapaz@gmail.com" target="_blank" rel="noopener noreferrer">
+  <img alt="Email" title="Entre em contato por email" src="./assets/badges/email.svg" /></a>
   <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank" rel="noopener noreferrer"><img alt="LinkedIn" title="Me siga no LinkedIn" src="./assets/badges/linkedin.svg" /></a>
   <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer"><img alt="Instagram" title="Me siga no Instagram" src="./assets/badges/instagram.svg" /></a>
- <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
-</p>
+  <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
 
 ---
