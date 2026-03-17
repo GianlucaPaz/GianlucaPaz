@@ -2,7 +2,7 @@
 
 - Me chamo Gianluca do Nascimento Paz, sou Desenvolvedor de Software e vivo no Brasil.
 
-- Tenho atuado principalmente em projetos de desenvolvimento mobile, construção de interfaces e aplicações web,<br>
+- Tenho atuado principalmente em projetos de desenvolvimento mobile, construção de interfaces e aplicações web<br>
    utilizando **Kotlin**, **Jetpack Compose**,  **HTML**, **CSS** e **JavaScript**.
 
 - Busco aprofundar meus conhecimentos em **backend** e **IA aplicada**, como complemento à minha formação e aos projetos que desenvolvo.
@@ -19,7 +19,7 @@
 
 Aplicativo Android desenvolvido em grupo como projeto de TCC, com foco na classificação local de resíduos utilizando **Kotlin**, **Jetpack Compose** e **TensorFlow Lite**.
 
-O projeto envolveu o desenvolvimento da interface, da lógica da aplicação, da integração com a câmera e a galeria, além da implementação de IA embarcada diretamente no dispositivo.
+O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da integração com a câmera e a galeria, além da implementação de IA embarcada diretamente no dispositivo.
 
 <a href="https://github.com/J4g3rWulf/automatic-happiness" target="_blank" rel="noopener noreferrer">
    <img alt="Ver repositório" title="Ver repositório no GitHub" src="./assets/badges/repository-bar.svg" />
@@ -97,7 +97,7 @@ O projeto envolveu o desenvolvimento da interface, da lógica da aplicação, da
 
 ---
 
-## ✉️ Redes e Contatos
+## 📫 Redes e Contatos
 
 <p align="left">
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gianlucapaz@gmail.com" target="_blank" rel="noopener noreferrer">
