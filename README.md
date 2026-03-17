@@ -95,10 +95,10 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 ### ✉️ Redes e Contatos
 
 <p align="left">
-  <a href="mailto:gianlucapaz@gmail.com"><img alt="Email" title="Entre em contato por email" src="https://custom-icon-badges.demolab.com/badge/-gianlucapaz@gmail.com-333?style=for-the-badge&logo=gmail&logoColor=white&labelColor=333" /></a>
-  <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank" rel="noopener noreferrer"><img alt="LinkedIn" title="Me siga no LinkedIn" src="https://custom-icon-badges.demolab.com/badge/-LinkedIn-0077B5?style=for-the-badge&logo=linkedin-in&logoColor=white" /></a>
-  <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer"><img alt="Instagram" title="Me siga no Instagram" src="https://custom-icon-badges.demolab.com/badge/-Instagram-C13584?style=for-the-badge&logo=instagram&logoColor=white&labelColor=C13584" /></a>
- <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="https://custom-icon-badges.demolab.com/badge/-%40gianlucapaz-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=5865F2" />
+  <a href="mailto:gianlucapaz@gmail.com"><img alt="Email" title="Entre em contato por email" src="./assets/badges/email.svg" /></a>
+  <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank" rel="noopener noreferrer"><img alt="LinkedIn" title="Me siga no LinkedIn" src="./assets/badges/linkedin.svg" /></a>
+  <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer"><img alt="Instagram" title="Me siga no Instagram" src="./assets/badges/instagram.svg" /></a>
+ <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
 </p>
 
 ---
