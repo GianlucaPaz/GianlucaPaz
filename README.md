@@ -101,10 +101,7 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
     <img alt="LinkedIn" title="Me siga no LinkedIn" src="./assets/badges/linkedin.svg" /></a>
   <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer">
     <img alt="Instagram" title="Me siga no Instagram" src="./assets/badges/instagram.svg" /></a>
-
-  <span>
-    <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
-  </span>
+  <span><img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="https://raw.githubusercontent.com/GianlucaPaz/GianlucaPaz/main/assets/badges/discord.svg" /></span>
 </p>
 
 <!-- Futuro Discord, se quiser transformar em link:
