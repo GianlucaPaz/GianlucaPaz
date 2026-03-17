@@ -96,9 +96,21 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 
 <p align="left">
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gianlucapaz@gmail.com" target="_blank" rel="noopener noreferrer">
-  <img alt="Email" title="Entre em contato por email" src="./assets/badges/email.svg" /></a>
-  <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank" rel="noopener noreferrer"><img alt="LinkedIn" title="Me siga no LinkedIn" src="./assets/badges/linkedin.svg" /></a>
-  <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer"><img alt="Instagram" title="Me siga no Instagram" src="./assets/badges/instagram.svg" /></a>
-  <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
+    <img alt="Email" title="Entre em contato por email" src="./assets/badges/email.svg" /></a>
+  <a href="https://www.linkedin.com/in/gianluca-paz-082143249/" target="_blank" rel="noopener noreferrer">
+    <img alt="LinkedIn" title="Me siga no LinkedIn" src="./assets/badges/linkedin.svg" /></a>
+  <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer">
+    <img alt="Instagram" title="Me siga no Instagram" src="./assets/badges/instagram.svg" /></a>
+
+  <span>
+    <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
+  </span>
+</p>
+
+<!-- Futuro Discord, se quiser transformar em link:
+<a href="SEU_LINK_DO_DISCORD" target="_blank" rel="noopener noreferrer">
+  <img alt="Discord" title="Fale comigo no Discord" src="./assets/badges/discord.svg" />
+</a>
+-->
 
 ---
