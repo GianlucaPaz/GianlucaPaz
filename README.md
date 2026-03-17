@@ -26,47 +26,47 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 
 <table>
   <tr>
-    <td align="center">Kotlin</td>
-    <td align="center">Jetpack Compose</td>
-    <td align="center">TensorFlow Lite</td>
-    <td align="center">HTML</td>
-    <td align="center">CSS</td>
-    <td align="center">JavaScript</td>
-    <td align="center">Python</td>
-    <td align="center">Git</td>
-    <td align="center">Figma</td>
-    <td align="center">Excalidraw</td>
+    <td align="center" width="72">Kotlin</td>
+    <td align="center" width="72">Jetpack Compose</td>
+    <td align="center" width="72">TensorFlow Lite</td>
+    <td align="center" width="72">HTML</td>
+    <td align="center" width="72">CSS</td>
+    <td align="center" width="72">JavaScript</td>
+    <td align="center" width="72">Python</td>
+    <td align="center" width="72">Git</td>
+    <td align="center" width="72">Figma</td>
+    <td align="center" width="72">Excalidraw</td>
   </tr>
   <tr>
-    <td align="center">
-      <img width="30px" alt="Kotlin" title="Kotlin" src="./assets/icons/kotlin.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="Kotlin" src="./assets/icons/kotlin.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="Jetpack Compose" title="Jetpack Compose" src="./assets/icons/jetpack-compose.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="Jetpack Compose" src="./assets/icons/jetpack-compose.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="TensorFlow Lite" title="TensorFlow Lite" src="./assets/icons/tensorflow.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="TensorFlow Lite" src="./assets/icons/tensorflow.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="HTML" title="HTML" src="./assets/icons/html5.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="HTML" src="./assets/icons/html5.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="CSS" title="CSS" src="./assets/icons/css3.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="CSS" src="./assets/icons/css3.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="JavaScript" title="JavaScript" src="./assets/icons/javascript.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="JavaScript" src="./assets/icons/javascript.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="Python" title="Python" src="./assets/icons/python.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="Python" src="./assets/icons/python.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="Git" title="Git" src="./assets/icons/git.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="Git" src="./assets/icons/git.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="Figma" title="Figma" src="./assets/icons/figma.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="Figma" src="./assets/icons/figma.svg" />
     </td>
-    <td align="center">
-      <img width="30px" alt="Excalidraw" title="Excalidraw" src="./assets/icons/excalidraw.svg" />
+    <td align="center" valign="middle" width="72">
+      <img width="28" height="28" alt="Excalidraw" src="./assets/icons/excalidraw.svg" />
     </td>
   </tr>
 </table>
