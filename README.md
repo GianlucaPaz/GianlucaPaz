@@ -22,53 +22,54 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 
 ---
 
-### 🤖 Ferramentas e Tecnologias (Editar essa seção)
+### 🤖 Ferramentas e Tecnologias
 
-Kotlin • Jetpack Compose • HTML • CSS • JavaScript • Python • Git • Figma • Excalidraw • TensorFlow Lite
-
-<img 
-    align="left" 
-    alt="HTML"
-    title="HTML" 
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="CSS" 
-    title="CSS"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="JavaScript" 
-    title="JavaScript"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Git" 
-    title="Git"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" 
-/>
-<img 
-    align="left" 
-    alt="Python" 
-    title="Python"
-    width="30px" 
-    style="padding-right: 10px;" 
-    src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" 
-/>
-
-<br/>
-<br/>
+<table>
+  <tr>
+    <td align="center">Kotlin</td>
+    <td align="center">Jetpack Compose</td>
+    <td align="center">TensorFlow Lite</td>
+    <td align="center">HTML</td>
+    <td align="center">CSS</td>
+    <td align="center">JavaScript</td>
+    <td align="center">Python</td>
+    <td align="center">Git</td>
+    <td align="center">Figma</td>
+    <td align="center">Excalidraw</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="30px" alt="Kotlin" title="Kotlin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="Jetpack Compose" title="Jetpack Compose" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetpackcompose/jetpackcompose-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="TensorFlow Lite" title="TensorFlow Lite" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="HTML" title="HTML" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="CSS" title="CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="JavaScript" title="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="Python" title="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="Git" title="Git" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="Figma" title="Figma" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" />
+    </td>
+    <td align="center">
+      <img width="30px" alt="Excalidraw" title="Excalidraw" src="https://cdn.jsdelivr.net/gh/excalidraw/excalidraw-logo@master/logo256.png" />
+    </td>
+  </tr>
+</table>
 
 ---
 
