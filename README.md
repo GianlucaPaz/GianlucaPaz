@@ -111,6 +111,12 @@ O projeto envolveu o desenvolvimento da interface, da lógica da aplicação, da
   </span>
 </p>
 
+<!-- Futuro Link do Whatsapp:
+  <a href="https://wa.me/55SEUNUMERO" target="_blank" rel="noopener noreferrer">
+     <img alt="WhatsApp" title="Fale comigo no WhatsApp" src="./assets/badges/whatsapp.svg" />
+  </a>
+-->
+
 <!-- Futuro Discord, se quiser transformar em link:
 <a href="SEU_LINK_DO_DISCORD" target="_blank" rel="noopener noreferrer">
   <img alt="Discord" title="Fale comigo no Discord" src="./assets/badges/discord.svg" />
