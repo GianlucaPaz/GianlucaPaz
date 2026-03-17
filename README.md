@@ -3,26 +3,31 @@
 - Me chamo Gianluca do Nascimento Paz, sou Desenvolvedor de Software e vivo no Brasil.
 
 - Tenho atuado principalmente em projetos de desenvolvimento mobile, construção de interfaces e aplicações web,<br>
-   utilizando Kotlin, Jetpack Compose,  HTML, CSS e JavaScript.
+   utilizando **Kotlin**, **Jetpack Compose**,  **HTML**, **CSS** e **JavaScript**.
 
-- Busco aprofundar meus conhecimentos em backend e IA aplicada, como complemento à minha formação e aos projetos que desenvolvo.
+- Busco aprofundar meus conhecimentos em **backend** e **IA aplicada**, como complemento à minha formação e aos projetos que desenvolvo.
 
-- Também utilizo Figma para UI design e Excalidraw para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
+- Também utilizo **Figma** para UI design e **Excalidraw** para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
 
 - Este é um espaço onde compartilho projetos, estudos e experimentos relacionados à minha evolução como desenvolvedor.
 
 ---
 
-### 🚀 Projeto em destaque (Editar ou deletar essa seção)
+## 🚀 Projeto em destaque
 
-#### RecycleApp
-Aplicação Android desenvolvida como projeto de TCC em grupo, utilizando **Kotlin** e **Jetpack Compose**, com **classificação local de resíduos via TensorFlow Lite**.  
+### ♻️ RecycleApp
 
-O projeto envolveu construção de interface, lógica da aplicação, integração com câmera e galeria e uso de IA embarcada no dispositivo.
+Aplicativo Android desenvolvido em grupo como projeto de TCC, com foco na classificação local de resíduos utilizando **Kotlin**, **Jetpack Compose** e **TensorFlow Lite**.
+
+O projeto envolveu o desenvolvimento da interface, da lógica da aplicação, da integração com a câmera e a galeria, além da implementação de IA embarcada diretamente no dispositivo.
+
+<a href="https://github.com/J4g3rWulf/automatic-happiness" target="_blank" rel="noopener noreferrer">
+   <img alt="Ver repositório" title="Ver repositório no GitHub" src="https://custom-icon-badges.demolab.com/badge/-Ver%20reposit%C3%B3rio-333?style=for-the-badge&logo=github&logoColor=white&labelColor=333" />
+</a>
 
 ---
 
-### 🤖 Ferramentas e Tecnologias
+## 🤖 Ferramentas e Tecnologias
 
 <table>
   <tr>
@@ -73,7 +78,7 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 
 ---
 
-### 📊 Estatísticas
+## 📊 Estatísticas
 
 <p align="left">
   <img
@@ -92,7 +97,7 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
 
 ---
 
-### ✉️ Redes e Contatos
+## ✉️ Redes e Contatos
 
 <p align="left">
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gianlucapaz@gmail.com" target="_blank" rel="noopener noreferrer">
