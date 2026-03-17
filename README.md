@@ -39,34 +39,34 @@ O projeto envolveu construção de interface, lógica da aplicação, integraç�
   </tr>
   <tr>
     <td align="center">
-      <img width="30px" alt="Kotlin" title="Kotlin" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" />
+      <img width="30px" alt="Kotlin" title="Kotlin" src="./assets/icons/kotlin.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="Jetpack Compose" title="Jetpack Compose" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jetpackcompose/jetpackcompose-original.svg" />
+      <img width="30px" alt="Jetpack Compose" title="Jetpack Compose" src="./assets/icons/jetpack-compose.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="TensorFlow Lite" title="TensorFlow Lite" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" />
+      <img width="30px" alt="TensorFlow Lite" title="TensorFlow Lite" src="./assets/icons/tensorflow.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="HTML" title="HTML" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+      <img width="30px" alt="HTML" title="HTML" src="./assets/icons/html5.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="CSS" title="CSS" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+      <img width="30px" alt="CSS" title="CSS" src="./assets/icons/css3.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="JavaScript" title="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+      <img width="30px" alt="JavaScript" title="JavaScript" src="./assets/icons/javascript.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="Python" title="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+      <img width="30px" alt="Python" title="Python" src="./assets/icons/python.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="Git" title="Git" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+      <img width="30px" alt="Git" title="Git" src="./assets/icons/git.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="Figma" title="Figma" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" />
+      <img width="30px" alt="Figma" title="Figma" src="./assets/icons/figma.svg" />
     </td>
     <td align="center">
-      <img width="30px" alt="Excalidraw" title="Excalidraw" src="https://cdn.jsdelivr.net/gh/excalidraw/excalidraw-logo@master/logo256.png" />
+      <img width="30px" alt="Excalidraw" title="Excalidraw" src="./assets/icons/excalidraw.svg" />
     </td>
   </tr>
 </table>
