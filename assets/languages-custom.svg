@@ -5,7 +5,7 @@
   </text>
 
   <rect x="16" y="58" width="348" height="10" rx="4" fill="#21262D"/>
-  <rect x="16.00" y="58" width="345.81" height="10" rx="4" fill="#A97BFF"/><rect x="361.81" y="58" width="2.19" height="10" rx="4" fill="#f1e05a"/>
+  <rect x="16.00" y="58" width="345.88" height="10" rx="4" fill="#A97BFF"/><rect x="361.88" y="58" width="2.12" height="10" rx="4" fill="#f1e05a"/>
 
-  <circle cx="20" cy="100" r="4.5" fill="#A97BFF"/><text x="34" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Kotlin 99.37%</text><circle cx="200" cy="100" r="4.5" fill="#f1e05a"/><text x="214" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">JavaScript 0.63%</text>
+  <circle cx="20" cy="100" r="4.5" fill="#A97BFF"/><text x="34" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Kotlin 99.39%</text><circle cx="200" cy="100" r="4.5" fill="#f1e05a"/><text x="214" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">JavaScript 0.61%</text>
 </svg>
