@@ -5,7 +5,7 @@
   </text>
 
   <rect x="16" y="58" width="348" height="10" rx="4" fill="#21262D"/>
-  <rect x="16.00" y="58" width="312.85" height="10" rx="4" fill="#A97BFF"/><rect x="328.85" y="58" width="33.23" height="10" rx="0" fill="#3572A5"/><rect x="362.09" y="58" width="1.91" height="10" rx="4" fill="#f1e05a"/>
+  <rect x="16.00" y="58" width="306.44" height="10" rx="4" fill="#A97BFF"/><rect x="322.44" y="58" width="40.16" height="10" rx="0" fill="#3572A5"/><rect x="362.61" y="58" width="1.39" height="10" rx="4" fill="#f1e05a"/>
 
-  <circle cx="20" cy="100" r="4.5" fill="#A97BFF"/><text x="34" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Kotlin 89.90%</text><circle cx="200" cy="100" r="4.5" fill="#3572A5"/><text x="214" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Python 9.55%</text><circle cx="20" cy="128" r="4.5" fill="#f1e05a"/><text x="34" y="133" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">JavaScript 0.55%</text>
+  <circle cx="20" cy="100" r="4.5" fill="#A97BFF"/><text x="34" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Kotlin 88.05%</text><circle cx="200" cy="100" r="4.5" fill="#3572A5"/><text x="214" y="105" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">Python 11.54%</text><circle cx="20" cy="128" r="4.5" fill="#f1e05a"/><text x="34" y="133" fill="#9f9f9f" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600">JavaScript 0.40%</text>
 </svg>
