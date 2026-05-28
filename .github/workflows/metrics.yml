@@ -1,9 +1,7 @@
 name: Metrics
-
 concurrency:
   group: metrics-main
   cancel-in-progress: true
-
 on:
   workflow_dispatch:
   schedule:
@@ -14,16 +12,14 @@ on:
     paths:
       - ".github/workflows/metrics.yml"
       - ".github/scripts/build_languages_svg.py"
-
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -39,25 +35,22 @@ jobs:
           config_output: json
           output_action: none
           base: ""
-
           plugin_languages: yes
           plugin_languages_sections: most-used
           plugin_languages_indepth: yes
           plugin_languages_indepth_custom: |
-            J4g3rWulf/automatic-happiness
-
+            J4g3rWulf/ra-mobile-app
+            J4g3rWulf/ra-cnn-training
           plugin_languages_categories: programming
           plugin_languages_details: lines,bytes-size,percentage
           plugin_languages_limit: 4
           plugin_languages_analysis_timeout: 15
-
           commits_authoring: |
             Gianluca Paz
             Gianluca do Nascimento Paz
             gianlucapaz
             gianlucapaz@gmail.com
             gianlucapaz@users.noreply.github.com
-
           plugin_languages_ignored: |
             html
             css
@@ -72,17 +65,19 @@ jobs:
       - name: Build custom SVG card
         run: python .github/scripts/build_languages_svg.py
 
+      - name: Atualiza cache-busting no README
+        run: |
+          VERSION=$(date +%s)
+          sed -i "s|languages-custom\.svg?v=[0-9]*|languages-custom.svg?v=${VERSION}|g" README.md
+
       - name: Commit generated SVG files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add -A assets/languages-custom.svg
-
+          git add -A assets/languages-custom.svg README.md
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
           fi
-
-          git commit -m "Auto-update custom language SVG"
+          git commit -m "chore: atualiza linguagens [skip ci]"
           git push origin main
