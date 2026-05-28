@@ -1,0 +1,41 @@
+name: Atualiza GitHub Stats
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # Todo dia às 03:00 UTC (meia-noite no horário de Brasília)
+  workflow_dispatch:        # Permite disparar manualmente pela aba Actions
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write       # Necessário para commitar o SVG gerado
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instala dependências
+        run: pip install requests
+
+      - name: Gera o SVG de stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USERNAME: gianlucapaz
+        run: python scripts/generate-stats.py
+
+      - name: Commita e faz push se houver mudança
+        run: |
+          git config --global user.name  'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add assets/github-stats.svg
+          git diff --staged --quiet || git commit -m "chore: atualiza github stats [skip ci]"
+          git push
