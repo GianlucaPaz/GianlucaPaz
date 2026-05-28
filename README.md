@@ -90,7 +90,7 @@ O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da 
     alt="Linguagens mais usadas"
     width="43.1%"
     style="vertical-align: middle;"
-    src="./assets/languages-custom.svg?v=2"
+    src="./assets/languages-custom.svg?v=1780002536"
   />
 </p>
 
