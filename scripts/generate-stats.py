@@ -1,6 +1,6 @@
 import requests
 import os
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 USERNAME = os.environ.get('GH_USERNAME', 'gianlucapaz')
 TOKEN    = os.environ.get('GITHUB_TOKEN', '')
@@ -10,7 +10,9 @@ HEADERS = {
     'Accept': 'application/vnd.github.v3+json',
 }
 
-# ─── Fetch ───────────────────────────────────────────────────────────────────
+BRT = timezone(timedelta(hours=-3))
+
+# ─── Fetch ────────────────────────────────────────────────────────────────────
 
 def graphql(query, variables=None):
     resp = requests.post(
@@ -24,7 +26,6 @@ def graphql(query, variables=None):
 
 
 def fetch_stats():
-    # ── Stars (repos do próprio usuário) ──────────────────────────────────
     repos = requests.get(
         f'https://api.github.com/users/{USERNAME}/repos',
         params={'per_page': 100, 'type': 'owner'},
@@ -33,12 +34,10 @@ def fetch_stats():
     ).json()
     total_stars = sum(r.get('stargazers_count', 0) for r in repos if isinstance(r, dict))
 
-    # ── Ano de criação da conta ────────────────────────────────────────────
-    user_info   = requests.get(f'https://api.github.com/users/{USERNAME}', headers=HEADERS, timeout=15).json()
+    user_info    = requests.get(f'https://api.github.com/users/{USERNAME}', headers=HEADERS, timeout=15).json()
     created_year = int(user_info.get('created_at', '2020-01-01')[:4])
-    current_year = datetime.now().year
+    current_year = datetime.now(BRT).year
 
-    # ── Commits (todos os anos, incluindo repositórios privados) ──────────
     commit_query = """
     query($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
@@ -59,7 +58,6 @@ def fetch_stats():
         cc = data.get('data', {}).get('user', {}).get('contributionsCollection', {})
         total_commits += cc.get('totalCommitContributions', 0) + cc.get('restrictedContributionsCount', 0)
 
-    # ── PRs, Issues, Contribuiu para ──────────────────────────────────────
     misc_query = """
     query($login: String!) {
       user(login: $login) {
@@ -82,56 +80,56 @@ def fetch_stats():
     }
 
 
-# ─── SVG ─────────────────────────────────────────────────────────────────────
+# ─── SVG ──────────────────────────────────────────────────────────────────────
 
 def generate_svg(stats):
-    BG     = '#0d1117'
-    BORDER = '#30363d'
-    TITLE  = '#e6edf3'
-    LABEL  = '#8b949e'
-    VALUE  = '#e6edf3'
-    FONT   = 'Segoe UI, Ubuntu, sans-serif'
+    BG      = '#161b22'
+    BORDER  = '#e1e4e8'
+    TITLE   = '#ffffff'
+    LABEL   = '#8b949e'
+    VALUE   = '#ffffff'
+    DIVIDER = '#21262d'
+    FONT    = 'Segoe UI, Ubuntu, sans-serif'
 
     items = [
-        ('⭐', 'Total de Stars',    stats['stars']),
-        ('📝', 'Total de Commits',  stats['commits']),
-        ('🔀', 'Total de PRs',      stats['prs']),
-        ('🐛', 'Total de Issues',   stats['issues']),
-        ('📦', 'Contribuiu para',   stats['contribs']),
+        ('⭐', 'Total de Stars',   stats['stars']),
+        ('📝', 'Total de Commits', stats['commits']),
+        ('🔀', 'Total de PRs',     stats['prs']),
+        ('🐛', 'Total de Issues',  stats['issues']),
+        ('📦', 'Contribuiu para',  stats['contribs']),
     ]
 
-    # Layout: coluna esquerda → índices 0, 2, 4 | coluna direita → 1, 3
+    # Coluna esquerda: índices 0, 2, 4 | Coluna direita: 1, 3
     left_items  = [items[i] for i in [0, 2, 4]]
     right_items = [items[i] for i in [1, 3]]
 
-    COL_LEFT  = 30
-    COL_RIGHT = 260
-    COL_W     = 195   # largura de cada coluna (label + valor)
-    START_Y   = 88
-    ROW_H     = 38
+    START_Y = 78
+    ROW_H   = 36
 
     rows = ''
-    for col_x, col in [(COL_LEFT, left_items), (COL_RIGHT, right_items)]:
-        for row_idx, (icon, label, value) in enumerate(col):
+    columns = [
+        (left_items,  22,  240),
+        (right_items, 258, 473),
+    ]
+    for col_items, x_start, x_val in columns:
+        for row_idx, (icon, label, value) in enumerate(col_items):
             y = START_Y + row_idx * ROW_H
             rows += f'''
-  <text x="{col_x}" y="{y}" font-family="{FONT}" font-size="13" fill="{LABEL}">{icon}  {label}:</text>
-  <text x="{col_x + COL_W}" y="{y}" font-family="{FONT}" font-size="13" font-weight="700" fill="{VALUE}" text-anchor="end">{value}</text>'''
+  <text x="{x_start}" y="{y}" font-family="{FONT}" font-size="13" fill="{LABEL}">{icon}  {label}:</text>
+  <text x="{x_val}" y="{y}" font-family="{FONT}" font-size="13" font-weight="700" fill="{VALUE}" text-anchor="end">{value}</text>'''
 
-    updated = datetime.utcnow().strftime('%d/%m/%Y %H:%M UTC')
+    now     = datetime.now(BRT)
+    updated = now.strftime('%d/%m/%Y %H:%M (BRT)')
 
-    return f'''<svg width="495" height="195" viewBox="0 0 495 195" xmlns="http://www.w3.org/2000/svg">
-  <rect width="495" height="195" rx="4.5" fill="{BG}" stroke="{BORDER}" stroke-width="1"/>
+    return f'''<svg width="495" height="185" viewBox="0 0 495 185" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="494" height="184" rx="8" fill="{BG}" stroke="{BORDER}" stroke-width="1"/>
 
-  <!-- Título -->
-  <text x="25" y="35" font-family="{FONT}" font-size="14" font-weight="700" fill="{TITLE}">📊 Estatísticas do GitHub de {USERNAME}</text>
-  <line x1="25" y1="50" x2="470" y2="50" stroke="{BORDER}" stroke-width="1"/>
+  <text x="22" y="30" font-family="{FONT}" font-size="15" font-weight="700" fill="{TITLE}">Estatísticas do GitHub de {USERNAME}</text>
+  <line x1="22" y1="44" x2="473" y2="44" stroke="{DIVIDER}" stroke-width="1"/>
 
-  <!-- Stats -->
   {rows}
 
-  <!-- Rodapé -->
-  <text x="470" y="185" font-family="{FONT}" font-size="10" fill="{LABEL}" text-anchor="end">Atualizado em {updated}</text>
+  <text x="473" y="174" font-family="{FONT}" font-size="10" fill="{LABEL}" text-anchor="end">Atualizado em {updated}</text>
 </svg>'''
 
 
