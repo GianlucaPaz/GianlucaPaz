@@ -1,15 +1,14 @@
 # 👋 Hello, World! I'm Gianluca Paz! 🌎
 
-- Me chamo Gianluca do Nascimento Paz, sou Desenvolvedor de Software e vivo no Brasil.
+Me chamo **Gianluca do Nascimento Paz**, sou Desenvolvedor de Software baseado no Brasil.
 
-- Tenho atuado principalmente em projetos de desenvolvimento mobile, construção de interfaces e aplicações web<br>
-   utilizando **Kotlin**, **Jetpack Compose**,  **HTML**, **CSS** e **JavaScript**.
+Tenho atuado principalmente em projetos de **desenvolvimento mobile**, construção de **interfaces** e **aplicações web**, com foco em experiência do usuário e código bem estruturado - usando **Kotlin**, **Jetpack Compose**, **HTML**, **CSS** e **JavaScript**.
 
-- Busco aprofundar meus conhecimentos em **backend** e **IA aplicada**, como complemento à minha formação e aos projetos que desenvolvo.
+Também utilizo **Figma** para UI design e **Excalidraw** para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
 
-- Também utilizo **Figma** para UI design e **Excalidraw** para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
+> 🌱 Atualmente aprofundando conhecimentos em **backend** e **IA aplicada**, como complemento à minha formação e aos projetos que desenvolvo.
 
-- Este é um espaço onde compartilho projetos, estudos e experimentos relacionados à minha evolução como desenvolvedor.
+Este é um espaço onde compartilho projetos, estudos e experimentos relacionados à minha evolução como desenvolvedor.
 
 ---
 
@@ -21,7 +20,7 @@ Aplicativo Android desenvolvido em grupo como projeto de TCC, com foco na classi
 
 O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da integração com a câmera e a galeria, além da implementação de IA embarcada diretamente no dispositivo.
 
-<a href="https://github.com/J4g3rWulf/automatic-happiness" target="_blank" rel="noopener noreferrer">
+<a href="https://github.com/J4g3rWulf/ra-mobile-app" target="_blank" rel="noopener noreferrer">
    <img alt="Ver repositório" title="Ver repositório no GitHub" src="./assets/badges/repository-bar.svg" />
 </a>
 
@@ -80,20 +79,22 @@ O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da 
 
 ## 📊 Estatísticas
 
-<p align="left">
-  <img
-    alt="GitHub Stats"
-    width="49%"
-    style="vertical-align: middle;"
-    src="https://github-readme-stats.vercel.app/api?username=gianlucapaz&show_icons=true&theme=dark&include_all_commits=true&locale=pt-br"
-  />
-  <img
-    alt="Linguagens mais usadas"
-    width="43.1%"
-    style="vertical-align: middle;"
-    src="./assets/languages-custom.svg"
-  />
-</p>
+<table>
+  <tr>
+    <td>
+      <img
+        alt="GitHub Stats"
+        src="https://github-readme-stats.vercel.app/api?username=gianlucapaz&show_icons=true&theme=dark&include_all_commits=true&locale=pt-br&cache_seconds=1800"
+      />
+    </td>
+    <td>
+      <img
+        alt="Linguagens mais usadas"
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username=gianlucapaz&layout=compact&theme=dark&locale=pt-br&cache_seconds=1800"
+      />
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -106,9 +107,7 @@ O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da 
     <img alt="LinkedIn" title="Me siga no LinkedIn" src="./assets/badges/linkedin.svg" /></a>
   <a href="https://instagram.com/gianlucapaz" target="_blank" rel="noopener noreferrer">
     <img alt="Instagram" title="Me siga no Instagram" src="./assets/badges/instagram.svg" /></a>
-  <span>
-     <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
-  </span>
+  <img alt="Discord" title="Meu usuário no Discord: @gianlucapaz" src="./assets/badges/discord.svg" />
 </p>
 
 <!-- Futuro Link do Whatsapp:
@@ -117,7 +116,7 @@ O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da 
   </a>
 -->
 
-<!-- Futuro Discord, se quiser transformar em link:
+<!-- Futuro Discord com link:
 <a href="SEU_LINK_DO_DISCORD" target="_blank" rel="noopener noreferrer">
   <img alt="Discord" title="Fale comigo no Discord" src="./assets/badges/discord.svg" />
 </a>
