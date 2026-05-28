@@ -79,22 +79,20 @@ O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da 
 
 ## 📊 Estatísticas
 
-<table>
-  <tr>
-    <td>
-      <img
-        alt="GitHub Stats"
-        src="https://github-readme-stats.vercel.app/api?username=gianlucapaz&show_icons=true&theme=dark&include_all_commits=true&locale=pt-br&cache_seconds=1800"
-      />
-    </td>
-    <td>
-      <img
-        alt="Linguagens mais usadas"
-        src="https://github-readme-stats.vercel.app/api/top-langs/?username=gianlucapaz&layout=compact&theme=dark&locale=pt-br&cache_seconds=1800"
-      />
-    </td>
-  </tr>
-</table>
+<p align="left">
+  <img
+    alt="GitHub Stats"
+    width="49%"
+    style="vertical-align: middle;"
+    src="./assets/github-stats.svg"
+  />
+  <img
+    alt="Linguagens mais usadas"
+    width="43.1%"
+    style="vertical-align: middle;"
+    src="./assets/languages-custom.svg"
+  />
+</p>
 
 ---
 
