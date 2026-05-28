@@ -1,0 +1,23 @@
+<svg width="495" height="195" viewBox="0 0 495 195" xmlns="http://www.w3.org/2000/svg">
+  <rect width="495" height="195" rx="4.5" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Título -->
+  <text x="25" y="35" font-family="Segoe UI, Ubuntu, sans-serif" font-size="14" font-weight="700" fill="#e6edf3">📊 Estatísticas do GitHub de gianlucapaz</text>
+  <line x1="25" y1="50" x2="470" y2="50" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Stats -->
+  
+  <text x="30" y="88" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" fill="#8b949e">⭐  Total de Stars:</text>
+  <text x="225" y="88" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="end">0</text>
+  <text x="30" y="126" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" fill="#8b949e">🔀  Total de PRs:</text>
+  <text x="225" y="126" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="end">31</text>
+  <text x="30" y="164" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" fill="#8b949e">📦  Contribuiu para:</text>
+  <text x="225" y="164" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="end">2</text>
+  <text x="260" y="88" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" fill="#8b949e">📝  Total de Commits:</text>
+  <text x="455" y="88" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="end">353</text>
+  <text x="260" y="126" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" fill="#8b949e">🐛  Total de Issues:</text>
+  <text x="455" y="126" font-family="Segoe UI, Ubuntu, sans-serif" font-size="13" font-weight="700" fill="#e6edf3" text-anchor="end">0</text>
+
+  <!-- Rodapé -->
+  <text x="470" y="185" font-family="Segoe UI, Ubuntu, sans-serif" font-size="10" fill="#8b949e" text-anchor="end">Atualizado em 28/05/2026 20:22 UTC</text>
+</svg>
