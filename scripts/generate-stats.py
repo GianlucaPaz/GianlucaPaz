@@ -124,7 +124,7 @@ def generate_svg(stats):
     return f'''<svg width="495" height="185" viewBox="0 0 495 185" xmlns="http://www.w3.org/2000/svg">
   <rect x="0.5" y="0.5" width="494" height="184" rx="8" fill="{BG}" stroke="{BORDER}" stroke-width="1"/>
 
-  <text x="22" y="30" font-family="{FONT}" font-size="15" font-weight="700" fill="{TITLE}">Estatísticas do GitHub de {USERNAME}</text>
+  <text x="22" y="30" font-family="{FONT}" font-size="15" font-weight="700" fill="{TITLE}">Estatísticas do GitHub</text>
   <line x1="22" y1="44" x2="473" y2="44" stroke="{DIVIDER}" stroke-width="1"/>
 
   {rows}
