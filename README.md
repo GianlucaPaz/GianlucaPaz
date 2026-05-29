@@ -32,6 +32,7 @@ Aplicativo Android desenvolvido como **Trabalho de Conclusão de Curso (TCC)**, 
 - **Dados** - Script Python (`populate_firestore_v2.py`) para ingestão de dados municipais via planilhas Excel
 - **Regulatório** - Conformidade com CONAMA nº 275/2001 e PNRS Lei nº 12.305/2010
 
+**Link:**
 <a href="https://github.com/J4g3rWulf/ra-mobile-app" target="_blank" rel="noopener noreferrer">
    <img alt="Ver repositório" title="Ver repositório no GitHub" src="./assets/badges/repository-bar.svg" />
 </a>
