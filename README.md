@@ -6,7 +6,7 @@ Tenho atuado principalmente em projetos de **desenvolvimento mobile**, construç
 
 Também utilizo **Figma** para UI design e **Excalidraw** para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
 
-> 🌱 Atualmente aprofundando conhecimentos em **backend** e **IA aplicada**, como complemento à minha formação e aos projetos que desenvolvo.
+> 🌱 Atualmente aprofundando conhecimentos em **IA aplicada** (modelos TFLite embarcados), **backend com Cloud Firestore** e arquitetura limpa para Android, como parte do meu TCC e projetos em produção.
 
 Este é um espaço onde compartilho projetos, estudos e experimentos relacionados à minha evolução como desenvolvedor.
 
@@ -16,9 +16,21 @@ Este é um espaço onde compartilho projetos, estudos e experimentos relacionado
 
 ### ♻️ RecycleApp
 
-Aplicativo Android desenvolvido em grupo como projeto de TCC, com foco na classificação local de resíduos utilizando **Kotlin**, **Jetpack Compose** e **TensorFlow Lite**.
+Aplicativo Android desenvolvido como **Trabalho de Conclusão de Curso (TCC)**, com foco em educação ambiental e logística reversa na região metropolitana do Rio de Janeiro.
 
-O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da integração com a câmera e a galeria, além da implementação de IA embarcada diretamente no dispositivo.
+**O que o app faz:**
+- 📸 **Classificação de resíduos por IA** - modelo de visão computacional rodando localmente no dispositivo via TensorFlow Lite, treinado para identificar materiais recicláveis (plástico, vidro, papel, metal) a partir de fotos da câmera ou galeria
+- 🗺️ **Mapa interativo de pontos de coleta** - 153 pontos cadastrados (PEVs, Ecopontos, Light Recicla) em Rio de Janeiro, Niterói, São Gonçalo, Duque de Caxias e Angra dos Reis, com filtros por tipo e sistema de clustering
+- 📚 **Conteúdo educativo** - telas sobre cores das lixeiras (CONAMA nº 275/2001), o que e como descartar, e glossário de termos da reciclagem
+- 🏛️ **Programas de reciclagem** - guia dos programas municipais e estaduais da região (Recicla Niterói, Light Recicla, EcoCLIN, Recicla São Gonçalo e outros)
+
+**Stack técnica:**
+- **Android** - Kotlin, Jetpack Compose, Clean Architecture, Service Locator
+- **IA embarcada** - TensorFlow Lite (classificador CNN/EfficientNet treinado em Python)
+- **Backend** - Cloud Firestore com fallback em cache local e dados estáticos
+- **Mapas** - Google Maps SDK + clustering via `maps-compose-utils`
+- **Dados** - Script Python (`populate_firestore_v2.py`) para ingestão de dados municipais via planilhas Excel
+- **Regulatório** - Conformidade com CONAMA nº 275/2001 e PNRS Lei nº 12.305/2010
 
 <a href="https://github.com/J4g3rWulf/ra-mobile-app" target="_blank" rel="noopener noreferrer">
    <img alt="Ver repositório" title="Ver repositório no GitHub" src="./assets/badges/repository-bar.svg" />
