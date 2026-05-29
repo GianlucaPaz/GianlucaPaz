@@ -84,7 +84,7 @@ O projeto envolve o desenvolvimento da interface, da lógica da aplicação, da 
     alt="GitHub Stats"
     width="49%"
     style="vertical-align: middle;"
-    src="./assets/github-stats.svg?v=1780002573"
+    src="./assets/github-stats.svg?v=1780037115"
   />
   <img
     alt="Linguagens mais usadas"
