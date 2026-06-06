@@ -103,7 +103,7 @@ Aplicativo Android desenvolvido como **Trabalho de Conclusão de Curso (TCC)**, 
     alt="Linguagens mais usadas"
     width="43.1%"
     style="vertical-align: middle;"
-    src="./assets/languages-custom.svg?v=1780671178"
+    src="./assets/languages-custom.svg?v=1780753479"
   />
 </p>
 
