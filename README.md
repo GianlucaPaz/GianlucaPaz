@@ -97,7 +97,7 @@ Aplicativo Android desenvolvido como **Trabalho de Conclusão de Curso (TCC)**, 
     alt="GitHub Stats"
     width="49%"
     style="vertical-align: middle;"
-    src="./assets/github-stats.svg?v=1782282980"
+    src="./assets/github-stats.svg?v=1782369610"
   />
   <img
     alt="Linguagens mais usadas"
