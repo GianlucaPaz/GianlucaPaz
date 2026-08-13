@@ -2,7 +2,7 @@
 
 Me chamo **Gianluca do Nascimento Paz**, sou Desenvolvedor de Software baseado no Brasil.
 
-Tenho atuado principalmente em projetos de **desenvolvimento mobile**, construção de **interfaces** e **aplicações web**, com foco em experiência do usuário e código bem estruturado - usando **Kotlin**, **Jetpack Compose**, **HTML**, **CSS** e **JavaScript**.
+Meus projetos até aqui foram em **desenvolvimento mobile**, construção de **interfaces** e **aplicações web**, com foco em experiência do usuário e código bem estruturado - usando **Kotlin**, **Jetpack Compose**, **HTML**, **CSS** e **JavaScript**.
 
 Também utilizo **Figma** para UI design e **Excalidraw** para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
 
