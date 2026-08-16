@@ -6,9 +6,16 @@ Meus projetos até aqui foram em **desenvolvimento mobile**, construção de **i
 
 Também utilizo **Figma** para UI design e **Excalidraw** para organizar ideias, fluxos e protótipos visuais de forma mais dinâmica.
 
-> 🌱 Atualmente aprofundando conhecimentos em **IA aplicada** (modelos TFLite embarcados), **backend com Cloud Firestore** e arquitetura limpa para Android, como parte do meu TCC e projetos em produção.
-
 Este é um espaço onde compartilho projetos, estudos e experimentos relacionados à minha evolução como desenvolvedor.
+
+---
+
+## 🎯 O que estou construindo agora
+
+- Especialização em backend Java desde julho de 2026 - Java, Spring Boot, JPA, PostgreSQL. 
+
+
+- Progresso registrado diariamente no repositório 12-semanas-dev.
 
 ---
 
