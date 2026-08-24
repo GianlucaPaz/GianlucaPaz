@@ -97,9 +97,9 @@ def generate_svg(stats):
         ('🤝', 'Colaborações',  stats['contribs'])
     ]
 
-    # Coluna esquerda: índices 0, 2, 4 | Coluna direita: 1, 3
-    left_items  = [items[i] for i in [0, 2, 4]]
-    right_items = [items[i] for i in [1, 3]]
+    # Distribui os itens alternadamente entre as duas colunas
+    left_items  = items[0::2]
+    right_items = items[1::2]
 
     START_Y = 78
     ROW_H   = 36
