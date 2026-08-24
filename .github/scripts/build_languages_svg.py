@@ -116,15 +116,16 @@ def generate_svg(entries):
     segments = []
     current_x = bar_x
 
+    gap = 2
     for idx, entry in enumerate(entries):
-        width = bar_width * (entry["pct"] / total_pct)
+        width = bar_width * (entry["pct"] / total_pct) - gap
         color = entry.get("color") or pick_color(entry["name"], idx)
         rx = 4 if idx == 0 or idx == len(entries) - 1 else 0
 
         segments.append(
             f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" rx="{rx}" fill="{color}"/>'
         )
-        current_x += width
+        current_x += width + gap
 
     legends = []
     for idx, entry in enumerate(entries):
@@ -139,13 +140,15 @@ def generate_svg(entries):
 
         legends.append(
             f'<circle cx="{cx}" cy="{cy}" r="4.5" fill="{color}"/>'
-            f'<text x="{tx}" y="{ty}" fill="#9f9f9f" font-family="\'Segoe UI\', Ubuntu, \'Helvetica Neue\', sans-serif" '
-            f'font-size="14" font-weight="600">{escape(entry["name"])} {entry["pct"]:.2f}%</text>'
+            f'<text x="{tx}" y="{ty}" font-family="\'Segoe UI\', Ubuntu, \'Helvetica Neue\', sans-serif" font-size="14">'
+            f'<tspan fill="#e6edf3" font-weight="600">{escape(entry["name"])}</tspan>'
+            f'<tspan fill="#8b949e" font-weight="400"> {entry["pct"]:.2f}%</tspan>'
+            f'</text>'
         )
 
     return f'''<svg width="{card_width}" height="{card_height}" viewBox="0 0 {card_width} {card_height}" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="{card_width-1}" height="{card_height-1}" x="0.5" y="0.5" rx="6" fill="#151515" stroke="#FFFFFF" stroke-width="1"/>
-  <text x="{padding_x}" y="{title_y}" fill="#fff" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="18" font-weight="600">
+  <text x="{padding_x}" y="{title_y}" fill="#e6edf3" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif" font-size="18" font-weight="600">
     Linguagens mais usadas
   </text>
 
