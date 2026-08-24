@@ -101,8 +101,9 @@ def generate_svg(stats):
     left_items  = items[0::2]
     right_items = items[1::2]
 
-    START_Y = 78
     ROW_H   = 36
+    rows    = max(len(left_items), len(right_items))
+    START_Y = 109 - ((rows - 1) * ROW_H) // 2 + 4
 
     rows = ''
     columns = [
