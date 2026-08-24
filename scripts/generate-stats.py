@@ -92,11 +92,9 @@ def generate_svg(stats):
     FONT    = 'Segoe UI, Ubuntu, sans-serif'
 
     items = [
-        ('⭐', 'Total de Stars',   stats['stars']),
         ('📝', 'Total de Commits', stats['commits']),
         ('🔀', 'Total de PRs',     stats['prs']),
-        ('🐛', 'Total de Issues',  stats['issues']),
-        ('📦', 'Contribuiu para',  stats['contribs']),
+        ('🤝', 'Colaborações',  stats['contribs'])
     ]
 
     # Coluna esquerda: índices 0, 2, 4 | Coluna direita: 1, 3
