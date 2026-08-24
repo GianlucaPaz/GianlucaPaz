@@ -122,7 +122,7 @@ def generate_svg(entries):
     for idx, entry in enumerate(entries):
         width = max(1.0, bar_width * (entry["pct"] / total_pct) - gap)
         color = pick_color(entry["name"], idx, entry.get("color"))
-        rx = 4 if idx == 0 or idx == len(entries) - 1 else 0
+        rx = 2
 
         segments.append(
             f'<rect x="{current_x:.2f}" y="{bar_y}" width="{width:.2f}" height="{bar_height}" rx="{rx}" fill="{color}"/>'
