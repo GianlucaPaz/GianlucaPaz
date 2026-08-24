@@ -46,8 +46,10 @@ def normalize_name(name: str) -> str:
     return aliases.get(str(name).strip().lower(), str(name).strip())
 
 
-def pick_color(name: str, index: int) -> str:
-    return COLOR_MAP.get(name, FALLBACK_COLORS[index % len(FALLBACK_COLORS)])
+def pick_color(name: str, index: int, fallback: str = None) -> str:
+    if name in COLOR_MAP:
+        return COLOR_MAP[name]
+    return fallback or FALLBACK_COLORS[index % len(FALLBACK_COLORS)]
 
 
 def parse_from_json(path: Path):
@@ -118,8 +120,8 @@ def generate_svg(entries):
 
     gap = 2
     for idx, entry in enumerate(entries):
-        width = bar_width * (entry["pct"] / total_pct) - gap
-        color = entry.get("color") or pick_color(entry["name"], idx)
+        width = max(1.0, bar_width * (entry["pct"] / total_pct) - gap)
+        color = pick_color(entry["name"], idx, entry.get("color"))
         rx = 4 if idx == 0 or idx == len(entries) - 1 else 0
 
         segments.append(
@@ -129,7 +131,7 @@ def generate_svg(entries):
 
     legends = []
     for idx, entry in enumerate(entries):
-        color = entry.get("color") or pick_color(entry["name"], idx)
+        color = pick_color(entry["name"], idx, entry.get("color"))
         col = idx % 2
         row = idx // 2
 
