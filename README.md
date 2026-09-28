@@ -10,7 +10,7 @@ Estou em transição para **backend Java**, e meu projeto anterior foi em desenv
 
 - Especialização em **backend Java** desde julho de 2026 - Java, Spring Boot, JPA, PostgreSQL.
  
-- Progresso registrado diariamente em **[12-semanas-dev](https://github.com/GianlucaPaz/12-semanas-dev)**.
+- Progresso registrado diariamente em **[java-sem-atalho](https://github.com/GianlucaPaz/java-sem-atalho)**.
 
 ---
 
