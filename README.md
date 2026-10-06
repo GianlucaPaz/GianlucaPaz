@@ -89,7 +89,7 @@ Aplicativo Android desenvolvido com foco em educação ambiental e logística re
     alt="GitHub Stats"
     width="49%"
     style="vertical-align: middle;"
-    src="./assets/github-stats.svg?v=1791193619"
+    src="./assets/github-stats.svg?v=1791279272"
   />
   <img
     alt="Linguagens mais usadas"
