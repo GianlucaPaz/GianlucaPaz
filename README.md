@@ -95,7 +95,7 @@ Aplicativo Android desenvolvido com foco em educação ambiental e logística re
     alt="Linguagens mais usadas"
     width="43.1%"
     style="vertical-align: middle;"
-    src="./assets/languages-custom.svg?v=1793733032"
+    src="./assets/languages-custom.svg?v=1793820407"
   />
 </p>
 
